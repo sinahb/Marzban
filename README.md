@@ -1,11 +1,14 @@
 ## نصب پنل مرزبان و تمام جزییات و نکات روی سرور ابونتو نسخه 22 و تانل گاست بین سرور ایران و خارج
+<br></br>
 ### آدرس گیت هاب مرزبان
     https://github.com/Gozargah/Marzban/blob/master/README-fa.md
 ### دستور نصب مرزبان :
     sudo bash -c "$(curl -sL https://github.com/Gozargah/Marzban-scripts/raw/master/marzban.sh)" @ install
 ### ساخت یوزر ادمین در مرزبان :
     marzban cli admin create –sudo
-### _نکته : پنل مرزبان بدون سرتیفیکیت و تنها با ای پی سرور اجرا نمی شود._
+> [!NOTE]
+### نکته : پنل مرزبان بدون سرتیفیکیت و تنها با ای پی سرور اجرا نمی شود.
+<br></br>
 ### نصب سرتیفیکیت :
     apt-get install certbot -y
 ### گرفتن سرتیفیکیت : (اگر آدرس سابسکرایب با پنل متفاوت باشد باید برای دو دامنه سرتیفیکیت گرفت)
@@ -21,8 +24,11 @@
     marzban restart
 ### _تا این مرحله پنل مرزبان با موفقیت نصب شده و با زدن آدرس دامنه و پورت 8000 می توان وارد پنل شد_    
     https://mydomain:8000/dashboard
+
 ### برای نصب اتوماتیک بک اپ گرفتن روی تلگرام از فایلهای مرزبان :
     https://github.com/AC-Lover/backup/blob/main/README-fa.md
+
+
 ### _مرحله اول : ایجاد ipv6 به صورت مجازی رو دو سرور_
 ### دستورات سرور ایران :
 ### ایجاد و ویرایش فایل سرویس:
@@ -53,7 +59,7 @@
     sudo systemctl start private
 ### آدرس گیت هاب تانل گاست :
     https://github.com/go-gost/gost
-### نصب گوست روی ایران (آخرین نسخه از گوست در گیت هاب در لینک زیر جا گذاری شود) :
+### _مرحله دوم : نصب گوست روی ایران (آخرین نسخه از گوست در گیت هاب در لینک زیر جا گذاری شود) :_
     wget -O /tmp/gost.tar.gz https://github.com/go-gost/gost/releases/download/v3.0.0-nightly.20241107/gost_3.0.0-nightly.20241107_linux_amd64v3.tar.gz
     tar -xvzf /tmp/gost.tar.gz -C /usr/local/bin/
     chmod +x /usr/local/bin/gost
@@ -76,4 +82,19 @@
 
 
 
+
+> [!NOTE]
+> Highlights information that users should take into account, even when skimming.
+
+> [!TIP]
+> Optional information to help a user be more successful.
+
+> [!IMPORTANT]
+> Crucial information necessary for users to succeed.
+
+> [!WARNING]
+> Critical content demanding immediate user attention due to potential risks.
+
+> [!CAUTION]
+> Negative potential consequences of an action.
 
