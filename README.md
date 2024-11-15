@@ -15,8 +15,8 @@
     certbot certonly --standalone --agree-tos --register-unsafely-without-email -d MyDomain
 ### کپی گرفتن از سرتیفیکیت و انتقال به مسیر مشخص در سرور
     mkdir /var/lib/marzban/certs
-    cp /etc/letsencrypt/live/fi3.nitroband.ir/fullchain.pem /var/lib/marzban/certs/fullchain.pem
-    cp /etc/letsencrypt/live/fi3.nitroband.ir/privkey.pem /var/lib/marzban/certs/privkey.pem
+    cp /etc/letsencrypt/live/MyDomain/fullchain.pem /var/lib/marzban/certs/fullchain.pem
+    cp /etc/letsencrypt/live/MyDomain/privkey.pem /var/lib/marzban/certs/privkey.pem
 ### مسیری که در فایل .env  باید جایگذاری شود : (آدرس فایل در /opt/marzban/ هست)
     /var/lib/marzban/certs/fullchain.pem
     /var/lib/marzban/certs/privkey.pem
