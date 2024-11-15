@@ -1,3 +1,7 @@
+<p align="center">
+    <img src="https://github.com/Gozargah/Marzban-docs/raw/master/screenshots/logo-dark.png" width="200" alt="accessibility text">
+</p>
+
 ## نصب پنل مرزبان و تمام جزییات و نکات روی سرور ابونتو نسخه 22 و تانل گاست بین سرور ایران و خارج
 <br></br>
 ### آدرس گیت هاب مرزبان
@@ -6,9 +10,11 @@
     sudo bash -c "$(curl -sL https://github.com/Gozargah/Marzban-scripts/raw/master/marzban.sh)" @ install
 ### ساخت یوزر ادمین در مرزبان :
     marzban cli admin create –sudo
+
 > [!NOTE]
-### نکته : پنل مرزبان بدون سرتیفیکیت و تنها با ای پی سرور اجرا نمی شود.
-<br></br>
+>### نکته : پنل مرزبان بدون سرتیفیکیت و تنها با ای پی سرور اجرا نمی شود.
+
+
 ### نصب سرتیفیکیت :
     apt-get install certbot -y
 ### گرفتن سرتیفیکیت : (اگر آدرس سابسکرایب با پنل متفاوت باشد باید برای دو دامنه سرتیفیکیت گرفت)
@@ -59,6 +65,11 @@
     sudo systemctl start private
 ### آدرس گیت هاب تانل گاست :
     https://github.com/go-gost/gost
+
+<p align="center">
+    <img src="https://camo.githubusercontent.com/0c324a8e990950cd253fb910cf23000bdb5f0eadb3eb72a3d4897156e5270d27/68747470733a2f2f676f73742e72756e2f696d616765732f726576657273652d70726f78792e706e67" alt="accessibility text">
+</p>
+
 ### _مرحله دوم : نصب گوست روی ایران (آخرین نسخه از گوست در گیت هاب در لینک زیر جا گذاری شود) :_
     wget -O /tmp/gost.tar.gz https://github.com/go-gost/gost/releases/download/v3.0.0-nightly.20241107/gost_3.0.0-nightly.20241107_linux_amd64v3.tar.gz
     tar -xvzf /tmp/gost.tar.gz -C /usr/local/bin/
