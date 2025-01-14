@@ -1,0 +1,95 @@
+### سمت ایران:        
+85.133.151.217
+5.202.12.100
+46.38.137.154
+
+1. ایجاد و ویرایش فایل سرویس:
+  
+sudo nano /etc/systemd/system/private.service
+  
+
+2. افزودن محتویات زیر به فایل:
+   
+[Unit]
+Description=My Custom Commands
+After=network.target
+
+[Service]
+ExecStart=/bin/bash -c "/sbin/ip tunnel add MR_KAKO mode sit remote 91.107.183.9 local 46.38.137.154 && /sbin/ip -6 addr add 0ac7:9180:0cac:db48:47cc::1/64 dev MR_KAKO && /sbin/ip link set MR_KAKO mtu 1280 && /sbin/ip link set MR_KAKO up"
+
+[Install]
+WantedBy=default.target
+   
+
+3. فعال و شروع به کار کردن سرویس:
+   
+sudo systemctl enable private
+sudo systemctl start private
+  
+
+### سمت خارج:
+65.109.214.175
+91.107.183.9
+91.107.183.9
+
+1. ایجاد و ویرایش فایل سرویس:
+   
+sudo nano /etc/systemd/system/private.service
+  
+
+2. افزودن محتویات زیر به فایل:
+  
+[Unit]
+Description=My Custom Commands 2
+After=network.target
+
+[Service]
+ExecStart=/bin/bash -c "/sbin/ip tunnel add MR_KAKO mode sit remote 46.38.137.154 local 91.107.183.9 && /sbin/ip -6 addr add 0ac7:9180:0cac:db48:47cc::2/64 dev MR_KAKO && /sbin/ip link set MR_KAKO mtu 1280 && /sbin/ip link set MR_KAKO up"
+
+[Install]
+WantedBy=default.target
+  
+
+3. فعال و شروع به کار کردن سرویس:
+   
+sudo systemctl enable private
+sudo systemctl start private
+
+
+
+
+آدرس گوست
+https://github.com/go-gost/gost/releases
+ نصب گوست روی ایران :
+wget -O /tmp/gost.tar.gz https://github.com/go-gost/gost/releases/download/v3.0.0-nightly.20241107/gost_3.0.0-nightly.20241107_linux_amd64v3.tar.gz
+
+
+wget -O /tmp/gost.tar.gz https://github.com/go-gost/gost/releases/download/v3.0.0-nightly.20250110/gost_3.0.0-nightly.20250110_linux_amd64v3.tar.gz
+
+tar -xvzf /tmp/gost.tar.gz -C /usr/local/bin/
+
+chmod +x /usr/local/bin/gost
+
+فایل گوست:
+sudo nano /usr/lib/systemd/system/gost.service
+######################
+دستورات 
+
+[Unit]
+Description=GO Simple Tunnel
+After=network.target
+Wants=network.target
+[Service]
+Type=simple
+Environment="GOST_LOGGER_LEVEL=fatal"
+ExecStart=/usr/local/bin/gost -L=tcp://:8080/[0ac7:9180:0cac:db48:47cc::2]:8080 -L=tcp://:8081/[0ac7:9180:0cac:db48:47cc::2]:8081 -L=tcp://:443/[0ac7:9180:0cac:db48:47cc::2]:443 -L=tcp://:2053/[0ac7:9180:0cac:db48:47cc::2]:2053 
+[Install]
+WantedBy=multi-user.target
+
+
+
+########################
+
+
+sudo systemctl enable gost 
+sudo systemctl start gost
