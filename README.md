@@ -43,8 +43,11 @@
     [Unit]
     Description=My Custom Commands
     After=network.target
+    
     [Service]
-    ExecStart=/bin/bash -c "/sbin/ip tunnel add MR_KAKO mode sit remote ip_kharej local ip_Iran && /sbin/ip -6 addr add 0ac7:9180:0cac:db48:47cc::1/64 dev MR_KAKO && /sbin/ip link set MR_KAKO mtu 1280 && /sbin/ip link set MR_KAKO up" [Install]
+    ExecStart=/bin/bash -c "/sbin/ip tunnel add MR_KAKO mode sit remote IP_KHAREJ local IP_IRAN && /sbin/ip -6 addr add 0ac7:9180:0cac:db48:47cc::1/64 dev MR_KAKO && /sbin/ip link set MR_KAKO mtu 1280 && /sbin/ip link set MR_KAKO up"
+
+    [Install]
     WantedBy=default.target
 ### فعال و شروع به کار کردن سرویس :
     sudo systemctl enable private
@@ -56,8 +59,10 @@
     [Unit]
     Description=My Custom Commands 2
     After=network.target
+    
     [Service]
-    ExecStart=/bin/bash -c "/sbin/ip tunnel add MR_KAKO mode sit remote ip_iran local ip_kharej && /sbin/ip -6 addr add 0ac7:9180:0cac:db48:47cc::2/64 dev MR_KAKO && /sbin/ip link set MR_KAKO mtu 1280 && /sbin/ip link set MR_KAKO up"
+    ExecStart=/bin/bash -c "/sbin/ip tunnel add MR_KAKO mode sit remote IP_IRAN local IP_KHAREJ && /sbin/ip -6 addr add 0ac7:9180:0cac:db48:47cc::2/64 dev MR_KAKO && /sbin/ip link set MR_KAKO mtu 1280 && /sbin/ip link set MR_KAKO up"
+    
     [Install]
     WantedBy=default.target
 ### فعال و شروع به کار کردن سرویس :
@@ -84,7 +89,7 @@
     [Service]
     Type=simple
     Environment="GOST_LOGGER_LEVEL=fatal"
-    ExecStart=/usr/local/bin/gost -L=tcp://:8080/[0ac7:9180:0cac:db48:47cc::2]:8080 -L=tcp://:8081/[0ac7:9180:0cac:db48:47cc::2]:8081 -L=tcp://:443/[0ac7:9180:0cac:db48:47cc::2]:443 -L=tcp://:2053/[0ac7:9180:0cac:db48:47cc::2]:2053 
+    ExecStart=/usr/local/bin/gost -L=tcp://:8080/[0ac7:9180:0cac:db48:47cc::2]:8080 -L=tcp://:8081/[0ac7:9180:0cac:db48:47cc::2]:8081 -L=tcp://:443/[0ac7:9180:0cac:db48:47cc::2]:443 -L=tcp://:2053/[0ac7:9180:0cac:db48:47cc::2]:2053 -L=tcp://:8000/[0ac7:9180:0cac:db48:47cc::2]:8000
     [Install]
     WantedBy=multi-user.target
 ### فعال و شروع به کار کردن سرویس :
@@ -108,4 +113,8 @@
 
 > [!CAUTION]
 > Negative potential consequences of an action.
+>
+> gost -V
+/usr/local/bin/gost -L=tcp://:8080/[0ac7:9180:0cac:db48:47cc::2]:8080 -L=tcp://:8081/[0ac7:9180:0cac:db48:47cc::2]:8081
+> تست سرویس گاست به صورت دستی
 
