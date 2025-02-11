@@ -96,6 +96,10 @@
     sudo systemctl enable gost 
     sudo systemctl start gost
 
+### تست سرویس گاست به صورت دستی :
+    gost -V
+    /usr/local/bin/gost -L=tcp://:8080/[0ac7:9180:0cac:db48:47cc::2]:8080 -L=tcp://:8081/[0ac7:9180:0cac:db48:47cc::2]:8081
+
 
 
 
@@ -113,8 +117,3 @@
 
 > [!CAUTION]
 > Negative potential consequences of an action.
->
-> gost -V
-/usr/local/bin/gost -L=tcp://:8080/[0ac7:9180:0cac:db48:47cc::2]:8080 -L=tcp://:8081/[0ac7:9180:0cac:db48:47cc::2]:8081
-> تست سرویس گاست به صورت دستی
-
